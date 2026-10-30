@@ -1,0 +1,90 @@
+<h2 mat-dialog-title>
+    {{ id () ? 'Editar préstamo' : 'Nuevo préstamo'}}
+</h2>
+
+<mat-dialog-content>
+
+<mat-form-field>
+   <mat-label>ID</mat-label>
+   <input
+   matInput
+   type="number"
+   [value]="id() ?? ''"
+   readonly
+/>
+</mat-form-field>
+
+<div class="fila">
+<mat-form-field>
+    <mat-label> Cliente</mat-label>
+    <mat-select
+    [compareWith]="compareById"
+    [ngModel]="client()"
+    (ngModelChange)="client.set($event)"
+    name="client">
+    @for (c of clients(); track $index) {
+        <mat-option [value]="c">
+            {{c.name}}
+        </mat-option>
+    }
+
+</mat-select>
+</mat-form-field>
+
+
+<mat-form-field>
+    <mat-label> Juego</mat-label>
+    <mat-select
+    [compareWith]="compareById"
+    [ngModel]="game()"
+    (ngModelChange)="game.set($event)">
+    @for (g of games(); track g.id) {
+        <mat-option [value]="g">
+            {{g.title}}
+        </mat-option>
+    }
+
+</mat-select>
+</mat-form-field>
+</div>
+
+
+<div class="fila">
+<mat-form-field>
+   <mat-label>Fecha de inicio</mat-label>
+
+   <input
+   matInput
+   type="date"
+   [ngModel]="startDate()"
+   (ngModelChange)="startDate.set($event)"
+/>
+</mat-form-field>
+
+
+<mat-form-field>
+   <mat-label>Fecha de devolución</mat-label>
+
+   <input
+   matInput
+   type="date"
+   [ngModel]="endDate()"
+   (ngModelChange)="endDate.set($event)"
+   />
+
+</mat-form-field>
+</div>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-stroked-button (click)="onClose()">
+        Cancelar
+    </button>
+
+    <button mat-flat-button color="primary" (click)="onSave()">
+        Guardar
+    </button>
+</mat-dialog-actions>
+
+

@@ -1,0 +1,44 @@
+.loan-filters {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.loan-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.loan-filters select,
+.loan-filters input {
+    height: 40px;
+    padding: 0 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.loan-filters label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-right: 20px;
+}
+
+
+.loan-filters button {
+    height: 40px;
+    padding: 0 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #3f51b5;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}

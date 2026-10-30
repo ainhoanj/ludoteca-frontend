@@ -1,0 +1,28 @@
+<div class = "container">
+    <h1>Gestión de clientes</h1>
+
+    <div class="client-list">
+        @for (client of clients(); track client.id){
+        <div class=""client-item>
+            <span>{{ client.name}}</span>
+
+            <div class="buttons">
+            <button mat-stroked-button (click)="editClient(client)">
+                Editar
+            </button>
+
+            <button mat-stroked-button (click)="deleteClient(client)">
+                Eliminar
+            </button>
+            </div>
+        </div>
+    }
+    
+    </div>
+
+    <div class="buttons">
+        <button mat-flat-button color="primary" (click)="createClient()">
+            Nuevo cliente
+        </button>
+    </div>
+    
